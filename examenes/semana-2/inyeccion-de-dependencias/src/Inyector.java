@@ -1,7 +1,9 @@
 public class Inyector {
 
+    //Método que inyecta dependencias
     static void inyectarAuto(Piloto piloto, TipoAuto tipoAuto){
 
+        //Switch para seleccionar el tipo de auto
         switch(tipoAuto){
             case NASCAR:
                 piloto.setAuto(new Nascar("Team Penske"));

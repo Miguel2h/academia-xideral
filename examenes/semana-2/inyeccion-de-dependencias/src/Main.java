@@ -4,14 +4,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
         //Declaración de variables;
         int opcion;
         Piloto piloto;
         List<Piloto> pilotos = new ArrayList<>();
 
+        //Ciclo para repetir el menú
         do {
             opcion = Integer.parseInt(JOptionPane.showInputDialog("Seleccione una opción:" +
                     "\n1. Añadir piloto" +
@@ -19,9 +18,12 @@ public class Main {
                     "\n3. Interactuar con el auto" +
                     "\n4. Salir"));
 
+            //Switch para las opciones del menú
             switch (opcion){
+                //Opción para añadir piloto
                 case 1: piloto = new Piloto(ingresarNombre(), ingresarEdad());
                         ingresarAuto();
+                        //inyección de dependencia
                         switch (ingresarAuto()){
                             case NASCAR:
                                 Inyector.inyectarAuto(piloto, TipoAuto.NASCAR);
@@ -38,20 +40,23 @@ public class Main {
                         }
                         pilotos.add(piloto);
                         break;
+                        //Opción para mostrar pilotos
                 case 2: for(Piloto p: pilotos){
                             System.out.println(p);
                         }
                         break;
                 case 3:
+                    //Opción para interactuar con el auto
                         int opcionAuto;
                         int pilotoSeleccionado = Integer.parseInt(JOptionPane.showInputDialog("Seleccione un piloto:"));
+                        //Ciclo para repetir el menú
                         do {
                             opcionAuto = Integer.parseInt(JOptionPane.showInputDialog("Seleccione una opción:" +
                                     "\n1. Encender auto" +
                                     "\n2. Acelerar auto" +
                                     "\n3. Frenar auto" +
                                     "\n4. Regresar"));
-
+                            //Switch para las opciones del menú
                             switch (opcionAuto){
                                 case 1: pilotos.get(pilotoSeleccionado).getAuto().encender();
                                         break;
@@ -66,14 +71,17 @@ public class Main {
         } while (opcion != 4);
     }
 
+    //Método para ingresar el nombre del piloto
     static String ingresarNombre(){
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre del piloto");
         return nombre;
     }
 
+    //Método para ingresar la edad del piloto
     static int ingresarEdad(){
         boolean comprobar = false;
         int edad = 0;
+        //Ciclo para comprobar que la edad sea un número
         do {
             try {
                 edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del piloto"));
@@ -85,10 +93,12 @@ public class Main {
         return edad;
     }
 
+    //Método para ingresar el tipo de auto
     static TipoAuto ingresarAuto(){
         boolean comprobar = false;
         TipoAuto tipoAuto = null;
         String auto = JOptionPane.showInputDialog("Ingrese el tipo de auto").toUpperCase();
+        //Ciclo para comprobar que el tipo de auto sea válido
         do {
             try {
                 tipoAuto = TipoAuto.valueOf(TipoAuto.class, auto);

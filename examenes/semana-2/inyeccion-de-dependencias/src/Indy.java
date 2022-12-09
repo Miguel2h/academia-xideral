@@ -1,10 +1,14 @@
 public class Indy implements Auto {
+
+    // Atributos
     private String escuderia;
 
+    // Constructor
     public Indy(String escuderia) {
         this.escuderia = escuderia;
     }
 
+    // Metodos
     @Override
     public void encender() {
         System.out.println("Encendiendo auto " + escuderia);
@@ -27,6 +31,7 @@ public class Indy implements Auto {
                 '}';
     }
 
+    // Getters y Setters
     public String getEscuderia() {
         return escuderia;
     }

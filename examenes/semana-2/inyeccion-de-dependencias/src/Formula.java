@@ -1,11 +1,14 @@
 public class Formula implements Auto {
 
+    // Atributos
     private String escuderia;
 
+    // Constructor
     public Formula(String escuderia) {
         this.escuderia = escuderia;
     }
 
+    // Metodos
     @Override
     public void encender() {
         System.out.println("Encendiendo auto " + escuderia);
@@ -28,6 +31,7 @@ public class Formula implements Auto {
                 '}';
     }
 
+    // Getters y Setters
     public String getEscuderia() {
         return escuderia;
     }

@@ -1,13 +1,16 @@
 public class Piloto {
+    //Atributos
     private String nombre;
     private int edad;
     private Auto auto;
 
+    //Constructor
     public Piloto(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
     }
 
+    //Metodos
     void encenderAuto() {
         auto.encender();
     }
@@ -29,6 +32,7 @@ public class Piloto {
                 '}';
     }
 
+    //Getters y Setters
     public String getNombre() {
         return nombre;
     }
